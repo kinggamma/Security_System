@@ -104,6 +104,8 @@ int main() {
 #include "mbed.h"
 #include "MFRC522.h" // Library for RFID
 
+typedef unsigned char byte;
+
 // Pin Definitions
 #define RFID_SS_PIN D10
 #define RFID_RST_PIN D9
