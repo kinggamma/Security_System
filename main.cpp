@@ -96,3 +96,47 @@ int main() {
         loop();
     }
 }
+
+
+
+// code to get the uid of the nfc tag before running the code
+/*
+#include "mbed.h"
+#include "MFRC522.h" // Library for RFID
+
+// Pin Definitions
+#define RFID_SS_PIN D10
+#define RFID_RST_PIN D9
+
+// Initialize objects
+MFRC522 RfChip(D13, D10, D12, D11, D9); // MFRC522 RfChip(SPI_MOSI, SPI_MISO, SPI_SCLK, SPI_CS, MF_RESET)
+
+void setup() {
+    // Initialize RFID
+    RfChip.PCD_Init();
+}
+
+void loop() {
+    // Check if a new card is present
+    if (RfChip.PICC_IsNewCardPresent()) {
+        // Read the card's UID
+        if (RfChip.PICC_ReadCardSerial()) {
+            printf("UID: ");
+            for (byte i = 0; i < RfChip.uid.size; i++) {
+                printf("%X", RfChip.uid.uidByte[i]);
+            }
+            printf("\r\n");
+        }
+    }
+
+    // Optional: Add delay to reduce CPU usage
+    ThisThread::sleep_for(100ms);
+}
+
+int main() {
+    setup();
+    while (true) {
+        loop();
+    }
+}
+*/
